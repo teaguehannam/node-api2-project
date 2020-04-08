@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 //Add post (title: "", body: "")
 router.post('/', (req, res) => {
     if (!req.body.title || !req.body.contents) {
-        res.status(400).json({ errorMessage: "Please provide title and contents for the post" });
+        res.status(400).json({ errorMessage: "Provide title and contents for the post" });
     } else {
         Data.insert(req.body)
         .then(post => {
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
         })
         .catch(error => {
             console.log(error);
-            res.status(500).json({ error: "there was an error while saving the post" })
+            res.status(500).json({ error: "Unable while save post" })
         })
     }
 })
